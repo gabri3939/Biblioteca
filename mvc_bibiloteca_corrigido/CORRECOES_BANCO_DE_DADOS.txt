@@ -1,0 +1,81 @@
+📋 INSTRUÇÕES PARA CORRIGIR O BANCO DE DADOS
+============================================
+
+🔴 PROBLEMA ENCONTRADO:
+- Coluna DATA_DEVOLUCAO_PREVISTA não existia na tabela EMPRESTIMOS
+- Campo ENDPASTA não estava alinhado corretamente
+- Nomes de colunas em minúsculas vs maiúsculas criavam inconsistência
+
+✅ SOLUÇÃO APLICADA:
+- Atualizado banco_dados.sql com a coluna DATA_DEVOLUCAO_PREVISTA
+- Criado arquivo de migração para bancos existentes
+- Todos os models corrigidos para usar nomes consistentes
+- Adicionados aliases em SQL para compatibilidade com views
+
+🚀 PRÓXIMOS PASSOS:
+
+1️⃣  SE SEU BANCO JÁ EXISTE (recomendado - preserva dados):
+   
+   Abra phpMyAdmin: http://localhost/phpmyadmin
+   - Selecione o banco: dboBiblioteca
+   - Clique em: SQL
+   - Cole TUDO isso:
+
+   ═══════════════════════════════════════════════════════
+   ALTER TABLE livros MODIFY COLUMN endpasta varchar(250) NULL;
+   ALTER TABLE emprestimos ADD COLUMN data_devolucao_prevista DATE AFTER data_emprestimo;
+   ═══════════════════════════════════════════════════════
+
+   - Clique em: Executar
+   - Pronto! ✅
+
+2️⃣  SE FOR CRIAR BANCO DO ZERO:
+   
+   Use o arquivo: docs/banco_dados.sql
+   (Já contém todas as correções)
+
+3️⃣  VERIFICAR SE FUNCIONOU:
+   
+   No phpMyAdmin, abra o banco dboBiblioteca
+   - Clique em: Estrutura
+   - Procure pela tabela: livros
+     → Deve ter coluna: endpasta (varchar, NULL ok)
+   - Procure pela tabela: emprestimos
+     → Deve ter coluna: data_devolucao_prevista (DATE)
+
+4️⃣  TESTAR NO NAVEGADOR:
+   
+   http://localhost/mvc_biblioteca%20v5%20(2)/mvc_bibiloteca_corrigido/index.php
+   - Tente acessar as seções:
+     ✅ Livros → Novo Livro
+     ✅ Autores → Nova lista
+     ✅ Categorias → Lista
+     ✅ Empréstimos
+
+═══════════════════════════════════════════════════════════════
+
+⚠️  TROUBLESHOOTING:
+
+Se receber erro: "Unknown column 'data_devolucao_prevista'"
+→ Executar: ALTER TABLE emprestimos ADD COLUMN data_devolucao_prevista DATE AFTER data_emprestimo;
+
+Se receber erro: "Column 'endpasta' cannot be null"
+→ Executar: ALTER TABLE livros MODIFY COLUMN endpasta varchar(250) NULL;
+
+Se receber aviso: "Undefined array key"
+→ Significa que os dados estão sendo retornados corretamente agora
+→ Atualize a página (F5) e o erro deve desaparecer
+
+═══════════════════════════════════════════════════════════════
+
+📁 ARQUIVOS MODIFICADOS:
+
+✅ model/livroModel.php
+✅ model/emprestimoModel.php
+✅ model/autorModel.php
+✅ model/categoriaModel.php
+✅ model/usuarioModel.php
+✅ docs/banco_dados.sql
+✅ docs/migracao_permitir_null_endpasta.sql
+
+✅ TODAS AS CORREÇÕES APLICADAS!

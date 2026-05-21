@@ -1,0 +1,175 @@
+═══════════════════════════════════════════════════════════════
+                  INSTRUÇÕES VISUAIS DO PHPMYADMIN
+═══════════════════════════════════════════════════════════════
+
+Aqui está um guia visual para executar a correção no phpMyAdmin
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 1: Abra o phpMyAdmin
+───────────────────────────────────────────────────────────────
+
+Na barra de endereço do seu navegador, digite:
+
+    http://localhost/phpmyadmin
+
+E aperte ENTER
+
+Você verá a tela inicial do phpMyAdmin
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 2: Selecione o banco de dados
+───────────────────────────────────────────────────────────────
+
+Do lado esquerdo da tela, você verá uma lista de bancos:
+
+    ┌─ localhost
+    ├─ dboBiblioteca  ← CLIQUE AQUI
+    ├─ information_schema
+    ├─ mysql
+    ├─ performance_schema
+    └─ test
+
+Clique em: dboBiblioteca
+
+Agora você verá as 5 tabelas do banco:
+    - usuarios
+    - autores
+    - categorias
+    - livros
+    - emprestimos
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 3: Vá para a aba SQL
+───────────────────────────────────────────────────────────────
+
+No topo da página principal, você verá várias abas:
+
+    ┌──────┬──────┬──────┬──────┬────────┐
+    │ Dado │ SQL  │ Novo │ ... │ ...    │
+    └──────┴──────┴──────┴──────┴────────┘
+
+Clique em: SQL
+
+Você verá uma área grande com um campo de texto branco
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 4: Cole o script de correção
+───────────────────────────────────────────────────────────────
+
+No campo de texto, APAGUE TUDO que está lá e cole isto:
+
+
+    ALTER TABLE livros MODIFY COLUMN endpasta varchar(250) NULL;
+    ALTER TABLE emprestimos ADD COLUMN data_devolucao_prevista DATE AFTER data_emprestimo;
+
+
+Ficará assim:
+
+    ┌─────────────────────────────────────────────────────────┐
+    │ ALTER TABLE livros MODIFY COLUMN endpasta varchar(250)  │
+    │ NULL;                                                    │
+    │ ALTER TABLE emprestimos ADD COLUMN data_devolucao_previ │
+    │ sta DATE AFTER data_emprestimo;                         │
+    └─────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 5: Execute o script
+───────────────────────────────────────────────────────────────
+
+Na parte de baixo da página, você verá dois botões:
+
+    ┌──────────────┬──────────────┐
+    │  Executar    │  Apagar      │
+    └──────────────┴──────────────┘
+
+Clique em: Executar (botão azul/verde)
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 6: Confirme se funcionou
+───────────────────────────────────────────────────────────────
+
+Você verá uma mensagem. Ela pode ser:
+
+    ✅ SUCESSO (fundo verde):
+       "A consulta foi executada com sucesso"
+       
+       Significa: TUDO ESTÁ PRONTO! ✨
+
+    ⚠️  AVISO (fundo amarelo):
+       "A consulta foi executada, mas..."
+       
+       Significa: Provavelmente a coluna já existia
+                  (Tudo bem! Continua funcionando)
+
+    ❌ ERRO (fundo vermelho):
+       "Erro em sua sintaxe SQL"
+       
+       Significa: Pode ter cola algo errado
+                  (Tente novamente, copie com cuidado)
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 7: Teste o sistema
+───────────────────────────────────────────────────────────────
+
+Agora abra seu navegador e acesse:
+
+http://localhost/mvc_biblioteca%20v5%20(2)/mvc_bibiloteca_corrigido/verificacao.php
+
+Você verá uma página com vários ✅ verdes
+
+Se todos estiverem verdes: PARABÉNS! Tudo está pronto!
+
+═══════════════════════════════════════════════════════════════
+
+ALTERNATIVA: Se preferir uma abordagem manual
+═══════════════════════════════════════════════════════════════
+
+Você também pode fazer cada correção separadamente:
+
+CORREÇÃO 1: Adicionar coluna data_devolucao_prevista
+───────────────────────────────────────────────────────────────
+1. Cole no SQL: 
+   ALTER TABLE emprestimos ADD COLUMN data_devolucao_prevista DATE AFTER data_emprestimo;
+2. Clique em: Executar
+3. Mensagem verde aparece? ✅
+
+CORREÇÃO 2: Permitir NULL em endpasta
+───────────────────────────────────────────────────────────────
+1. Cole no SQL:
+   ALTER TABLE livros MODIFY COLUMN endpasta varchar(250) NULL;
+2. Clique em: Executar
+3. Mensagem verde aparece? ✅
+
+═══════════════════════════════════════════════════════════════
+
+DÚVIDAS?
+═══════════════════════════════════════════════════════════════
+
+P: Onde colpo o script exatamente?
+R: Na aba SQL, no grande campo de texto branco
+
+P: Preciso fazer algo depois de clicar em Executar?
+R: Não! O phpMyAdmin já aplica as mudanças automaticamente
+
+P: E se eu clicar executar 2 vezes?
+R: Sem problema! Se a coluna já existe, ele avisa mas não bate
+
+P: Posso fechar a página do phpMyAdmin depois?
+R: Sim! As mudanças já foram salvas no banco
+
+P: Como sei se funcionou?
+R: Acesse verificacao.php e veja se tudo está ✅
+
+═══════════════════════════════════════════════════════════════
+
+✨ PRONTO! Você consegue!
+
+Qualquer dúvida, leia: REFERENCIA_RAPIDA.txt
+═══════════════════════════════════════════════════════════════

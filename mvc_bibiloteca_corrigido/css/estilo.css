@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.site-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 14px 0;
+    text-align: center;
+}
+
+.site-header .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.site-header .header-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.site-header .header-nav {
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 0;
+}
+
+.site-header .header-nav a {
+    color: #ffd700;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.site-header .header-nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #28a745);
+    border-radius: 12px 12px 0 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: translateY(-2px);
+}
+
+footer.site-footer {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+    color: #555;
+}
+
+footer.site-footer a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+footer.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ── Tabelas de listagem ──────────────────────────────────── */
+.container-lista {
+    max-width: 900px;
+    margin: 24px auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+}
+
+.btn-novo {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 9px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-novo:hover {
+    background-color: #1e7e34;
+}
+
+.acoes-celula {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.acoes-celula a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.btn-editar {
+    background-color: #007bff;
+}
+
+.btn-editar:hover {
+    background-color: #0056d6;
+}
+
+.btn-excluir {
+    background-color: #dc3545;
+}
+
+.btn-excluir:hover {
+    background-color: #b02a37;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+table thead tr {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+table th,
+table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+table tbody tr:hover {
+    background-color: #f0f4f8;
+}
+
+.celula-id {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Estilo para a célula de imagem da capa do livro */
+.celula-imagem {
+    text-align: center;
+    padding: 8px 14px;
+}
+
+/* Estilo para as imagens das capas dos livros */
+.celula-imagem img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+/* Efeito hover nas imagens */
+.celula-imagem img:hover {
+    transform: scale(1.1);
+}
+
+.sem-dados {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}

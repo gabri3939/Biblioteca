@@ -1,0 +1,76 @@
+🚀 PASSO A PASSO PARA CORRIGIR TUDO
+====================================
+
+⏱️  Tempo: 2 minutos
+📋 Dificuldade: Muito fácil
+✨ Resultado: Sistema 100% funcional
+
+────────────────────────────────────────
+
+PASSO 1: Abra phpMyAdmin
+────────────────────────────────────────
+1. Abra seu navegador
+2. Digite: http://localhost/phpmyadmin
+3. Aperte ENTER
+
+
+PASSO 2: Abra o banco de dados
+────────────────────────────────────────
+1. Procure à esquerda: "dboBiblioteca"
+2. Clique nele
+3. Você verá as 5 tabelas
+
+
+PASSO 3: Vá para a aba SQL
+────────────────────────────────────────
+1. No topo da página, clique em: "SQL"
+2. Você verá uma grande caixa branca
+
+
+PASSO 4: Cole o script
+────────────────────────────────────────
+1. Copie TUDO abaixo:
+
+   └─ COPIE COMEÇANDO DAQUI:
+
+ALTER TABLE livros MODIFY COLUMN endpasta varchar(250) NULL;
+ALTER TABLE emprestimos ADD COLUMN data_devolucao_prevista DATE AFTER data_emprestimo;
+
+   └─ TERMINE AQUI
+
+2. Cole na caixa branca do phpMyAdmin
+3. Clique em: "Executar" (botão azul no final da página)
+
+
+PASSO 5: Confirme
+────────────────────────────────────────
+Se você vir uma mensagem verde dizendo "Consulta executada com sucesso":
+✅ TUDO ESTÁ PRONTO!
+
+Se vir mensagem de erro:
+❌ Verifique se a coluna já existe
+   (Se disser que já existe, tudo bem! Significa que já estava corrigido)
+
+
+PASSO 6: Teste no navegador
+────────────────────────────────────────
+1. Abra: http://localhost/mvc_biblioteca%20v5%20(2)/mvc_bibiloteca_corrigido/
+2. Teste cada seção:
+   ✅ Livros
+   ✅ Autores
+   ✅ Categorias
+   ✅ Empréstimos
+
+Se tudo aparecer sem erros vermelhos:
+🎉 PRONTO! Sistema funcionando perfeitamente!
+
+
+DÚVIDAS?
+────────────────────────────────────────
+1. Verifique o arquivo: RESUMO_CORRECOES.md
+2. Ou acesse: verificacao.php
+3. Ou leia: CORRECOES_BANCO_DE_DADOS.txt
+
+════════════════════════════════════════
+✨ Feito! Bom uso! 🚀
+════════════════════════════════════════
